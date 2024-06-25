@@ -637,6 +637,14 @@ def read_parquet(
         foo  bar
     0    3    8
     1    4    9
+
+    For importing information by using filesystem, users can configure a
+    filesystem such as S3
+    by using following steps mentioned.
+    import pyarrow.parquet as pq
+    import s3fs
+    s3 = s3fs.S3FileSystem()
+    filesystem = pq.ParquetDataset('s3://your-bucket/', filesystem=s3)
     """
 
     impl = get_engine(engine)
